@@ -1,14 +1,14 @@
 
 
 
-import Home from "./components/Home";
-import Campus from "./components/Campus";
-import Library from "./components/Library";
-import Contact from "./components/contact";
-import Testmonial from "./components/Testmonial";
-import About from "./components/about";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navabar";
+import Home from "./components/Home/Home";
+import Campus from "./components/Campus/Campus";
+import Library from "./components/Librarys/Library";
+import Contact from "./components/Contact/contact";
+import Testmonial from "./components/Testmonial/Testmonial";
+import About from "./components/about/about";
+import Footer from "./components/Footer/Footer";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
