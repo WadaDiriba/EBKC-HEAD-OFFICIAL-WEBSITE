@@ -18,41 +18,57 @@
   z-index: -2;
 }
 
-/* Each Slide */
+/* Each Slide - REMOVE background-image from CSS */
 .slide {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   opacity: 0;
   animation: fadeSlider 15s infinite;
   transform: scale(1);
   transition: transform 15s ease-in-out;
 }
 
-/* Add smooth Ken Burns effect */
+/* Add smooth Ken Burns effect - REMOVE background-image */
 .slide1 {
-  background-image: url("../../assets/home1.png");
+  /* background-image removed - now set inline */
   animation-delay: 0s;
 }
 
 .slide2 {
-  background-image: url("../../assets/home2.png");
+  /* background-image removed - now set inline */
   animation-delay: 5s;
 }
 
 .slide3 {
-  background-image: url("../../assets/home3.png");
+  /* background-image removed - now set inline */
   animation-delay: 10s;
 }
 
 /* Fade Animation */
 @keyframes fadeSlider {
-  0% { opacity: 0; transform: scale(1); }
-  10% { opacity: 1; transform: scale(1.05); }
-  30% { opacity: 1; transform: scale(1.1); }
-  40% { opacity: 0; transform: scale(1.15); }
-  100% { opacity: 0; transform: scale(1.2); }
+  0% { 
+    opacity: 0; 
+    transform: scale(1); 
+  }
+  10% { 
+    opacity: 1; 
+    transform: scale(1.05); 
+  }
+  30% { 
+    opacity: 1; 
+    transform: scale(1.1); 
+  }
+  40% { 
+    opacity: 0; 
+    transform: scale(1.15); 
+  }
+  100% { 
+    opacity: 0; 
+    transform: scale(1.2); 
+  }
 }
 
 /* Dark Overlay */
@@ -60,7 +76,7 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    rgba(0, 0, 0, 0.55),
+    rgba(179, 240, 238, 0.55),
     rgba(0, 0, 0, 0.65)
   );
   z-index: -1;
@@ -78,7 +94,7 @@
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.5); /* makes text readable on images */
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
 }
 
 .homeContent p {
@@ -98,12 +114,12 @@
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 .btn:hover {
-  background-color: #008080; /* slightly brighter teal */
+  background-color: #008080;
   transform: translateY(-3px);
   box-shadow: 0 6px 15px rgba(0,0,0,0.4);
 }
@@ -119,7 +135,6 @@
     transform: translateY(0);
   }
 }
-
 
 /* Tablets and mobile devices */
 @media (max-width: 1024px) {
@@ -167,3 +182,15 @@
   }
 }
 
+/* Ensure images display properly */
+.slide::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3); /* Optional: darken image slightly */
+  z-index: 1;
+}
+
+.slide {
+  z-index: 0;
+}
