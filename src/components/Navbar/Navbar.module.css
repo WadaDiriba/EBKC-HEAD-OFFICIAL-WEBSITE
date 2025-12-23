@@ -1,18 +1,11 @@
-/* Reset default spacing (optional, global) */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Wrapper / Header */
+/* Header */
 .header {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;       /* full width */
+  width: 100%;
   z-index: 1000;
-  background-color: rgba(0, 128, 128, 0.85); /* semi-transparent teal */
+  background-color: rgba(0, 128, 128, 0.9);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 
 }
@@ -23,8 +16,6 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.75rem 2rem;
-  max-width: 100%; /* full width */
-  margin: 0 auto;
 }
 
 /* Brand / Logo */
@@ -37,13 +28,13 @@
 .brand img {
   width: 50px;
   height: 50px;
-  object-fit: cover; /* fills circle nicely */
-  border-radius: 50%; /* circular logo */
+  object-fit: cover;
+  border-radius: 50%; /* Circular logo */
   transition: transform 0.3s ease;
 }
 
 .brand img:hover {
-  transform: scale(1.05); /* subtle zoom effect */
+  transform: scale(1.05);
 }
 
 .brandText {
@@ -51,7 +42,6 @@
   font-weight: 700;
   color: #ffffff;
   white-space: nowrap;
-  letter-spacing: 0.5px;
 }
 
 /* Navigation Links */
@@ -68,33 +58,78 @@
   font-weight: 500;
   color: #ffffff;
   padding: 0.4rem 0.6rem;
-  transition: all 0.3s ease;
   border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
 .navLinks a:hover {
   background-color: rgba(255, 255, 255, 0.15);
-  color: #00ffff; /* teal-ish hover */
+  color: #00ffff;
 }
 
-/* Active Link */
 .active {
-  color: #00ffff; /* highlight active page */
+  color: #00ffff;
   font-weight: 600;
 }
 
 /* Donate Button */
-.navLinks .donate {
+.donateBtn {
   padding: 0.5rem 1.2rem;
   background-color: #00ffff;
-  color: #000000;
+  color: #000;
   border-radius: 25px;
   font-weight: 600;
   transition: all 0.3s ease;
 }
 
-.navLinks .donate:hover {
+.donateBtn:hover {
   background-color: #00cccc;
   color: #ffffff;
   transform: translateY(-2px);
+}
+
+/* Hamburger Icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+/* Responsive: Mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .navLinks {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    height: calc(100% - 70px);
+    width: 200px;
+    flex-direction: column;
+    background-color: rgba(0,128,128,0.95);
+    padding-top: 2rem;
+    transition: right 0.3s ease;
+  }
+
+  .navLinks.navActive {
+    right: 0;
+  }
+
+  .navLinks li {
+    margin-bottom: 1.5rem;
+  }
+
+  .navLinks a {
+    font-size: 1.1rem;
+  }
 }
