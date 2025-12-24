@@ -52,13 +52,13 @@ export default function Navbar() {
           <div className={styles.logoContainer}>
             <img 
               src={logo} 
-              alt="Ethiopian Berhana Kiristos Church Logo"
+              alt="Ethiopian Berhane Kristos Church Logo"
               className={styles.logoImage}
             />
           </div>
           <div className={styles.brandText}>
             <span className={styles.brandLine1}>Ethiopian</span>
-            <span className={styles.brandLine2}>Berhana Kiristos Church</span>
+            <span className={styles.brandLine2}>Berhane Kristos Church</span>
           </div>
         </Link>
 

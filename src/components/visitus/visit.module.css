@@ -1,5 +1,97 @@
-body{
+/* visit.module.css */
 
+.visitSection {
+  padding: 10px 10px;
+  background-color: #f9f9f9;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
 
-    background-color: aqua;
+.visitContent {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.visitTitle {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #212523;
+  margin-bottom: 15px;
+}
+
+.visitText {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* Search Container */
+.searchContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+  gap: 10px;
+}
+
+.searchInput {
+  flex: 1;
+  max-width: 400px;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.searchInput:focus {
+  border-color: #28d6ad;
+  box-shadow: 0 0 8px rgba(48, 40, 214, 0.3);
+}
+
+/* Search Button */
+.searchButton {
+  padding: 12px 20px;
+  font-size: 1rem;
+  background-color: #28d6aa;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.searchButton:hover {
+  background-color: #c9cfce;
+  transform: translateY(-2px);
+}
+
+/* Map Container */
+.mapContainer {
+  width: 100%;
+  height: 400px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .visitTitle {
+    font-size: 2rem;
+  }
+
+  .visitText {
+    font-size: 1rem;
+  }
+
+  .searchContainer {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .searchInput {
+    max-width: 100%;
+  }
 }

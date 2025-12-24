@@ -1,22 +1,18 @@
 import { useEffect, useState } from "react";
 import styles from "./Footer.module.css";
 import logo from "../../assets/logo.png";
+
 import {
   FaMapMarkerAlt,
   FaPhoneAlt,
   FaClock,
-} from "react-icons/fa";
-
-
-
-
-import {
+  FaEnvelope,
+  FaInbox,
   FaFacebookF,
-   FaInstagram,
+  FaInstagram,
   FaYoutube,
   FaTelegramPlane,
 } from "react-icons/fa";
-
 
 export default function Footer() {
   const [currentYear, setCurrentYear] = useState<number>(2024);
@@ -24,11 +20,11 @@ export default function Footer() {
 
   useEffect(() => {
     setCurrentYear(new Date().getFullYear());
-    
+
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 500);
     };
-    
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -44,38 +40,45 @@ export default function Footer() {
     { label: "Library", href: "/library" },
     { label: "Contact", href: "/contact" },
     { label: "Donate", href: "/donate" },
-   {   label:"visit",href:"/visit"} 
+    { label: "Visit", href: "/visit" },
   ];
-  const contactInfo = [
-  {
-    icon: <FaMapMarkerAlt />,
-    label: "123 Faith Street, Addis Ababa, Ethiopia",
-  },
-  {
-    icon: <FaPhoneAlt />,
-    label: "+251 11 123 4567",
-  },
-  {
-    icon: <FaPhoneAlt />,
-    label: "+251 91 123 4567",
-  },
-  {
-    icon: <FaClock />,
-    label: "Monday - Friday | 2:00 AM - 11:00 AM",
-  },
-];
 
+  const contactInfo = [
+    {
+      icon: <FaMapMarkerAlt />,
+      label: "3P54+GWH, Addis Ababa, Ethiopia",
+      href: "https://www.google.com/maps/place/Berhane+Kristos+Church+Head+Office/@9.0587859,38.7074158,43m/data=!3m1!1e3!4m7!3m6!1s0x164b89c7142ac885:0xb242a721e7778248!4b1!8m2!3d9.0588021!4d38.7073529!16s%2Fg%2F11s8rjdqjn?hl=en&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D",
+    },
+    {
+      icon: <FaPhoneAlt />,
+      label: "+251 11 123 4567",
+    },
+    {
+      icon: <FaPhoneAlt />,
+      label: "+251 91 123 4567",
+    },
+    {
+      icon: <FaEnvelope />,
+      label: "EBKC12@Yahoo.com",
+      href: "mailto:EBKC12@Yahoo.com",
+    },
+    {
+      icon: <FaInbox />,
+      label: "P.O.Box-160689",
+      href: "https://www.google.com/maps/search/?api=1&query=P.O.Box-160689+Addis+Ababa",
+    },
+    {
+      icon: <FaClock />,
+      label: "Monday – Friday | 2:00 AM – 11:00 AM",
+    },
+  ];
 
   const socialLinks = [
-  { icon: <FaFacebookF />, label: "Facebook", href: "https://facebook.com" },
-  { icon: <FaInstagram />, label: "Instagram", href: "https://instagram.com" },
-  { icon: <FaYoutube />, label: "YouTube", href: "https://youtube.com" },
-  { icon: <FaTelegramPlane />, label: "Telegram", href: "https://t.me/yourchannel" },
-];
-
-
-
-
+    { icon: <FaFacebookF />, label: "Facebook", href: "https://facebook.com" },
+    { icon: <FaInstagram />, label: "Instagram", href: "https://instagram.com" },
+    { icon: <FaYoutube />, label: "YouTube", href: "https://youtube.com" },
+    { icon: <FaTelegramPlane />, label: "Telegram", href: "https://t.me/yourchannel" },
+  ];
 
   return (
     <footer className={styles.footer}>
@@ -88,8 +91,8 @@ export default function Footer() {
 
       {/* Scroll to Top Button */}
       {showScrollTop && (
-        <button 
-          className={styles.scrollTopButton} 
+        <button
+          className={styles.scrollTopButton}
           onClick={scrollToTop}
           aria-label="Scroll to top"
         >
@@ -99,27 +102,27 @@ export default function Footer() {
 
       {/* Main Footer Content */}
       <div className={styles.container}>
-        
         {/* Church Info & Brand */}
         <div className={`${styles.section} ${styles.brandSection}`}>
           <div className={styles.logoContainer}>
-            <img 
-              src={logo} 
-              alt="Ethiopian Berhana Kiristos Church Logo" 
+            <img
+              src={logo}
+              alt="Ethiopian Berhane Kiristos Church Logo"
               className={styles.logo}
             />
             <div className={styles.logoGlow}></div>
           </div>
-          
+
           <h2 className={styles.churchName}>
-            Ethiopian Berhana
-            <span className={styles.nameHighlight}> Kiristos</span> Church
+            Ethiopian Berhane
+            <span className={styles.nameHighlight}> Kristos</span> Church
           </h2>
-          
+
           <p className={styles.mission}>
-            Proclaiming the Gospel, Transforming Lives, and Building a Christ-centered Community in Ethiopia and Entire the World.
+            Proclaiming the Gospel, Transforming Lives, and Building a
+            Christ-centered Community in Ethiopia and Entire the World.
           </p>
-          
+
           {/* Social Media Links */}
           <div className={styles.socialLinks}>
             {socialLinks.map((social, index) => (
@@ -140,14 +143,13 @@ export default function Footer() {
         {/* Quick Links */}
         <div className={styles.section}>
           <h3 className={styles.sectionTitle}>
-            <span className={styles.titleIcon}>🔗</span>
-            Quick Links
+            <span className={styles.titleIcon}>🔗</span> Quick Links
           </h3>
-          
+
           <ul className={styles.linksList}>
             {quickLinks.map((link, index) => (
-              <li 
-                key={index} 
+              <li
+                key={index}
                 className={styles.linkItem}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
@@ -159,43 +161,41 @@ export default function Footer() {
               </li>
             ))}
           </ul>
-          
-         
-          
         </div>
 
         {/* Contact Information */}
         <div className={styles.section}>
           <h3 className={styles.sectionTitle}>
-            <span className={styles.titleIcon}>📞</span>
-             Head Office Bureau
+            <span className={styles.titleIcon}>📞</span> Head Office Bureau
           </h3>
-          
-          <div className={styles.contactInfo}>
-            {contactInfo.map((info, index) => (
-              <div 
-                key={index} 
+
+          <div className={styles.contactList}>
+            {contactInfo.map((item, index) => (
+              <a
+                key={index}
+                href={item.href || "#"}
                 className={styles.contactItem}
-                style={{ animationDelay: `${index * 0.1}s` }}
+                target={item.href ? "_blank" : "_self"}
+                rel="noreferrer"
               >
-                <span className={styles.contactIcon}>{info.icon}</span>
-                <span className={styles.contactText}>{info.label}</span>
-              </div>
+                <span className={styles.contactIcon}>{item.icon}</span>
+                <span className={styles.contactText}>{item.label}</span>
+              </a>
             ))}
           </div>
 
-          
-          
           {/* Newsletter Subscription */}
           <div className={styles.newsletter}>
             <h4 className={styles.newsletterTitle}>Stay Updated</h4>
-            <p className={styles.newsletterText}>Subscribe to our weekly newsletter</p>
-            
+            <p className={styles.newsletterText}>
+              Subscribe to our weekly newsletter
+            </p>
+
             <form className={styles.subscriptionForm}>
               <div className={styles.inputGroup}>
-                <input 
-                  type="email" 
-                  placeholder="Wedadiriba@gmail.com" 
+                <input
+                  type="email"
+                  placeholder="EBKC12@Yahoo.com"
                   className={styles.emailInput}
                   aria-label="Email for newsletter subscription"
                 />
@@ -211,14 +211,10 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className={styles.bottomBar}>
         <div className={styles.bottomContent}>
-          {/* Copyright */}
           <div className={styles.copyright}>
-            © {currentYear} Ethiopian Berhana Kiristos Church. All Rights Reserved.
+            © {currentYear} Ethiopian Berhane Kristos Church. All Rights
+            Reserved.
           </div>
-          
-         
-          
-         
         </div>
       </div>
     </footer>
