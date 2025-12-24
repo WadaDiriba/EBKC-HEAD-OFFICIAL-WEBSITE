@@ -1,7 +1,22 @@
 import { useEffect, useState } from "react";
 import styles from "./Footer.module.css";
 import logo from "../../assets/logo.png";
-import { href } from "react-router-dom";
+import {
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaClock,
+} from "react-icons/fa";
+
+
+
+
+import {
+  FaFacebookF,
+   FaInstagram,
+  FaYoutube,
+  FaTelegramPlane,
+} from "react-icons/fa";
+
 
 export default function Footer() {
   const [currentYear, setCurrentYear] = useState<number>(2024);
@@ -31,21 +46,36 @@ export default function Footer() {
     { label: "Donate", href: "/donate" },
    {   label:"visit",href:"/visit"} 
   ];
-
   const contactInfo = [
-    { icon: "", label: "123 Faith Street, Addis Ababa, Ethiopia" },
-    { icon: "", label: "+251 11 123 4567" },
-    { icon: "", label: "+251 91 123 4567" },
-    { icon: "", label: "info@ebkchurch.org" },
-    { icon: "", label: "Sunday Services: 8:00 AM - 12:00 PM" },
-  ];
+  {
+    icon: <FaMapMarkerAlt />,
+    label: "123 Faith Street, Addis Ababa, Ethiopia",
+  },
+  {
+    icon: <FaPhoneAlt />,
+    label: "+251 11 123 4567",
+  },
+  {
+    icon: <FaPhoneAlt />,
+    label: "+251 91 123 4567",
+  },
+  {
+    icon: <FaClock />,
+    label: "Monday - Friday | 2:00 AM - 11:00 AM",
+  },
+];
+
 
   const socialLinks = [
-    { icon: "📘", label: "Facebook", href: "#" },
-    { icon: "📷", label: "Instagram", href: "#" },
-    { icon: "📹", label: "YouTube", href: "#" },
-    { icon: "💬", label: "Telegram", href: "#" },
-  ];
+  { icon: <FaFacebookF />, label: "Facebook", href: "https://facebook.com" },
+  { icon: <FaInstagram />, label: "Instagram", href: "https://instagram.com" },
+  { icon: <FaYoutube />, label: "YouTube", href: "https://youtube.com" },
+  { icon: <FaTelegramPlane />, label: "Telegram", href: "https://t.me/yourchannel" },
+];
+
+
+
+
 
   return (
     <footer className={styles.footer}>
@@ -87,7 +117,7 @@ export default function Footer() {
           </h2>
           
           <p className={styles.mission}>
-            Proclaiming the Gospel, Transforming Lives, and Building a Christ-centered Community in Ethiopia and Beyond.
+            Proclaiming the Gospel, Transforming Lives, and Building a Christ-centered Community in Ethiopia and Entire the World.
           </p>
           
           {/* Social Media Links */}
@@ -130,20 +160,15 @@ export default function Footer() {
             ))}
           </ul>
           
-          {/* Prayer Request Button */}
-          <div className={styles.prayerSection}>
-            <button className={styles.prayerButton}>
-              <span className={styles.prayerIcon}>🙏</span>
-              <span>Submit Prayer Request</span>
-            </button>
-          </div>
+         
+          
         </div>
 
         {/* Contact Information */}
         <div className={styles.section}>
           <h3 className={styles.sectionTitle}>
             <span className={styles.titleIcon}>📞</span>
-            Contact Us
+             Head Office Bureau
           </h3>
           
           <div className={styles.contactInfo}>
@@ -158,6 +183,8 @@ export default function Footer() {
               </div>
             ))}
           </div>
+
+          
           
           {/* Newsletter Subscription */}
           <div className={styles.newsletter}>
@@ -191,11 +218,7 @@ export default function Footer() {
           
          
           
-          {/* Ministry Verse */}
-          <div className={styles.verse}>
-            <span className={styles.verseIcon}>✝️</span>
-            "Therefore go and make disciples of all nations..." — Matthew 28:19
-          </div>
+         
         </div>
       </div>
     </footer>
