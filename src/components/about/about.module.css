@@ -441,6 +441,7 @@
 .linkText {
   position: relative;
   z-index: 2;
+  color: black;
 }
 
 .linkUnderline {
@@ -559,7 +560,7 @@
 .statNumber {
   font-size: 3rem;
   font-weight: 800;
-  color: #ffd700; /* Gold color for emphasis */
+  color:black; /* Gold color for emphasis */
   margin-bottom: 0.5rem;
   position: relative;
   z-index: 1;
