@@ -11,12 +11,10 @@
 
 /* Header Section */
 .contactHeader {
+  width: 100%;
+  background-color: #2d3748;
   text-align: center;
   margin-bottom: 60px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
- 
 }
 
 .headerContent {
@@ -44,7 +42,7 @@
 
 .subtitle {
   font-size: 1.2rem;
-  color: #4a5568;
+   color: white;
   line-height: 1.6;
   max-width: 600px;
   margin: 0 auto;
