@@ -7,11 +7,12 @@ import Campus from "./components/Campus/Campus";
 import Library from "./components/Librarys/Library";
 import Testmonial from "./components/Testmonial/Testmonial";
 import Donate from "./components/Donate/Donate";
-import Contact from "./components/Contact/Contact";
+
 import Visit from "./components/visitus/Visit";
 import Footer from "./components/Footer/Footer";
 
 import History from "./components/history/history";
+import Contact from "./components/Contact/Contact";
 
 
 function App() {
