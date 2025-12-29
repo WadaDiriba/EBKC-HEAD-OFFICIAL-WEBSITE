@@ -2,7 +2,7 @@
 .historySection {
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(135deg, #1a202c, #2d3748);
+  background-color: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,32 +51,63 @@
 .title {
   font-size: 3rem;
   text-align: center;
-  color: #f7fafc;
+  color: black;
   margin-bottom: 40px;
   letter-spacing: 1px;
   animation: zoomIn 0.9s ease;
 }
 
-/* Paragraph text */
-.paragraph {
-  font-size: 1.15rem;
-  line-height: 1.9;
-  color: #e2e8f0;
-  margin-bottom: 28px;
+
+/* Row container for paragraph cards */
+.paragraphRow {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap; /* will wrap on smaller screens */
+  justify-content: center; /* center horizontally */
+  margin-bottom: 50px;
+}
+
+/* Paragraph boxes (cards) */
+.paragraphBox {
+  flex: 1 1 300px; /* grow, shrink, base width */
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 26px 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  animation: slideUp 0.9s ease forwards;
   opacity: 0;
-  animation: fadeUp 1s ease forwards;
+  transition: transform 0.3s ease;
+}
+
+.paragraphBox:hover {
+  transform: translateY(-6px) scale(1.02);
 }
 
 /* Stagger animation */
-.paragraph:nth-child(2) {
-  animation-delay: 0.3s;
+.paragraphBox:nth-child(1) { animation-delay: 0.2s; }
+.paragraphBox:nth-child(2) { animation-delay: 0.4s; }
+.paragraphBox:nth-child(3) { animation-delay: 0.6s; }
+
+/* Paragraph text */
+.paragraph {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color:black;
+  margin: 0;
 }
-.paragraph:nth-child(3) {
-  animation-delay: 0.6s;
+
+/* Responsive */
+@media (max-width: 768px) {
+  .paragraphRow {
+    flex-direction: column;
+  }
 }
-.paragraph:nth-child(4) {
-  animation-delay: 0.9s;
+.downloadNote{
+
+  color: black;
 }
+/* Stagger animation */
+
 
 /* Animations */
 @keyframes fadeIn {
