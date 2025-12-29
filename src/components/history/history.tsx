@@ -42,7 +42,7 @@ export default function History() {
             download
             className={styles.downloadBtn}
           >
-            📱 Continue Reading in Our Mobile App
+             Continue Reading in Our Mobile App
           </a>
           <p className={styles.downloadNote}>
             Full history • Offline reading • Official Church App

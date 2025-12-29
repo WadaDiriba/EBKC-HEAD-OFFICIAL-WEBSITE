@@ -83,6 +83,7 @@ export default function About() {
           <div className={styles.titleWrapper}>
             <h1 className={styles.title}>
               <span className={styles.titleWord}>About</span>
+               
               <span className={styles.titleWord}>    Us</span>
             </h1>
             <div className={styles.titleUnderline}></div>
