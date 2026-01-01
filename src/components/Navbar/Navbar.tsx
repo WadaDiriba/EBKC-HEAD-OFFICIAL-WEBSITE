@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import logo from "../../assets/logo.png";
 
+
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -41,6 +42,7 @@ export default function Navbar() {
     },
     { id: "campus", label: "Campus", path: "/campus" },
     { id: "library", label: "Library", path: "/library" },
+
 
   ];
 
@@ -100,6 +102,7 @@ export default function Navbar() {
               {item.dropdown && dropdownOpen && (
                 <ul className={styles.dropdown}>
                   {item.dropdown.map((subItem) => (
+                    
                     <li key={subItem.id}>
                       <Link 
                         to={subItem.path} 
@@ -138,15 +141,4 @@ export default function Navbar() {
       </nav>
     </header>
   );
-}export interface Department {
-  id: string;
-  name: string;
-  description: string;
-  head: string;
-  courses: number;
-  students: number;
-  color: string;
-  icon: JSX.Element;
-  careerPaths: string[];
 }
-

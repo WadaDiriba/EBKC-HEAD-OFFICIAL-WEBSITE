@@ -102,6 +102,9 @@ export default function About() {
               <div className={styles.rotatingCircle}>
                 <div className={styles.innerCircle}>
                   <div className={styles.churchIcon}>
+                    
+                  
+
                     ✝️
                   </div>
                 </div>
@@ -114,6 +117,7 @@ export default function About() {
                 <span className={styles.floatingTextItem}>Faith</span>
                 <span className={styles.floatingTextItem}>Hope</span>
                 <span className={styles.floatingTextItem}>Love</span>
+
               </div>
             </div>
           </div>
