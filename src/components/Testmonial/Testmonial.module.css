@@ -1,6 +1,6 @@
 .section {
-  padding: 4rem 2rem;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 5rem 2rem;
+  background: var(--bg-secondary, #F5F7FA);
   text-align: center;
   overflow: hidden;
 }
@@ -8,7 +8,25 @@
 .title {
   font-size: 2.5rem;
   margin-bottom: 3rem;
-  color: #2c3e50;
+  background: var(--blue-gradient, linear-gradient(135deg, #2D5A8A 0%, #1E3A5F 100%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--gold-gradient, linear-gradient(90deg, #E8D4A6 0%, #C9A961 50%, #A68B3F 100%));
+  border-radius: 2px;
 }
 
 .title span {
@@ -49,9 +67,10 @@
   width: 100%;
   height: 100%;
   padding: 2rem;
-  background: white;
+  background: var(--bg-primary, #FFFFFF);
   border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(29, 18, 18, 0.1);
+  box-shadow: 0 10px 40px var(--shadow-sm, rgba(30, 58, 95, 0.08));
+  border: 1px solid var(--border-light, #E8ECF1);
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   align-items: center;
@@ -81,7 +100,7 @@
 .text {
   font-size: 1.4rem;
   line-height: 1.8;
-  color: #34495e;
+  color: var(--text-primary, #2C3E50);
   margin-bottom: 2rem;
   font-style: italic;
   position: relative;
@@ -92,7 +111,7 @@
 .text::after {
   content: '"';
   font-size: 3rem;
-  color: #3498db;
+  color: var(--gold, #C9A961);
   position: absolute;
   opacity: 0.3;
 }
@@ -113,10 +132,10 @@
   gap: 1.5rem;
   margin-top: 2rem;
   padding: 1.5rem;
-  background: linear-gradient(135deg, #cfc80a 0%, #d7ae0d 100%);
+  background: var(--gold-gradient, linear-gradient(135deg, #E8D4A6 0%, #C9A961 50%, #A68B3F 100%));
   border-radius: 15px;
-  color:black;
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+  color: var(--text-on-gold, #1E3A5F);
+  box-shadow: 0 5px 15px var(--shadow-gold, rgba(201, 169, 97, 0.3));
   transition: transform 0.3s ease;
 }
 
@@ -127,15 +146,15 @@
 .avatar {
   width: 70px;
   height: 70px;
-  background: white;
+  background: var(--bg-primary, #FFFFFF);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 2rem;
   font-weight: bold;
-  color: #667eea;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: var(--blue, #1E3A5F);
+  box-shadow: 0 4px 12px var(--shadow-sm, rgba(30, 58, 95, 0.15));
 }
 
 .authorInfo {
@@ -145,7 +164,8 @@
 .authorName {
   font-size: 1.3rem;
   margin: 0 0 0.5rem 0;
-  color:black;
+  color: var(--text-on-gold, #1E3A5F);
+  font-weight: 700;
 }
 
 .authorRole {
@@ -158,21 +178,24 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  border: none;
- 
-  color:black;
+  border: 2px solid var(--gold, #C9A961);
+  background: var(--gold-gradient, linear-gradient(135deg, #E8D4A6 0%, #C9A961 50%, #A68B3F 100%));
+  color: var(--text-on-gold, #1E3A5F);
   font-size: 1.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-
+  box-shadow: 0 4px 15px var(--shadow-gold, rgba(201, 169, 97, 0.25));
 }
 
 .navButton:hover {
   transform: scale(1.1);
-
+  background: var(--red-gradient, linear-gradient(135deg, #E63950 0%, #C41E3A 50%, #9B1529 100%));
+  color: var(--text-on-dark, #FFFFFF);
+  border-color: var(--red, #C41E3A);
+  box-shadow: 0 6px 20px var(--shadow-red, rgba(196, 30, 58, 0.35));
 }
 
 .navButton:disabled {
@@ -193,21 +216,21 @@
   height: 14px;
   border-radius: 50%;
   border: none;
-  background: #bdc3c7;
+  background: var(--medium-gray, #B8C5D1);
   cursor: pointer;
   transition: all 0.3s ease;
   padding: 0;
 }
 
 .dot:hover {
-  background: #7f8c8d;
+  background: var(--dark-gray, #6B7A8A);
   transform: scale(1.2);
 }
 
 .dotActive {
-  background: linear-gradient(135deg, #efe016 0%, #d89e0b 100%);
+  background: var(--gold-gradient, linear-gradient(135deg, #E8D4A6 0%, #C9A961 50%, #A68B3F 100%));
   transform: scale(1.3);
-  box-shadow: 0 0 10px rgba(102, 126, 234, 0.6);
+  box-shadow: 0 0 10px var(--shadow-gold, rgba(201, 169, 97, 0.6));
 }
 
 @keyframes slideInRight {

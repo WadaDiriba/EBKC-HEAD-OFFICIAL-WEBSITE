@@ -6,39 +6,38 @@ const testimonial = [
     id: 1,
     name: "Alemayehu Kebede",
     role: "Senior Pastor",
-    text: "The transformation in our church over the years has been nothing short of God's grace at work.",
+    text: "The transformation in our church over the years has been nothing short of God's grace at work. We've seen lives changed, families restored, and communities transformed through the power of the Gospel.",
   },
   {
     id: 2,
     name: "Selamawit Bekele",
     role: "Ministry Leader",
-    text: "Serving together has strengthened my faith and deepened my understanding of community.",
+    text: "Serving together has strengthened my faith and deepened my understanding of community. This church truly embodies the love of Christ in action.",
   },
   {
     id: 3,
     name: "Mikael Tsegaye",
     role: "Youth Mentor",
-    text: "This ministry speaks the language of the next generation without losing biblical truth.",
+    text: "This ministry speaks the language of the next generation without losing biblical truth. The youth are being equipped and empowered to make a difference.",
   },
-   {
+  {
     id: 4,
-    name: "Mikael Tsegaye",
-    role: "Youth Mentor",
-    text: "This ministry speaks the language of the next generation without losing biblical truth.",
+    name: "Tigist Haile",
+    role: "Worship Leader",
+    text: "Worshipping here has been a life-changing experience. The presence of God is tangible, and hearts are being drawn closer to Him through music and praise.",
   },
-   {
+  {
     id: 5,
-    name: "Mikael Tsegaye",
-    role: "Youth Mentor",
-    text: "This ministry speaks the language of the next generation without losing biblical truth.",
+    name: "Daniel Assefa",
+    role: "Church Member",
+    text: "I found a family here. The love, support, and genuine care from the church community has been a blessing beyond measure in my life.",
   },
-   {
+  {
     id: 6,
-    name: "Mikael Tsegaye",
-    role: "Youth Mentor",
-    text: "This ministry speaks the language of the next generation without losing biblical truth.",
+    name: "Martha Solomon",
+    role: "Children's Ministry",
+    text: "Seeing children grow in their faith and understanding of God's love brings me so much joy. This church truly invests in the next generation.",
   },
-  
 ];
 
 export default function Testmonial() {

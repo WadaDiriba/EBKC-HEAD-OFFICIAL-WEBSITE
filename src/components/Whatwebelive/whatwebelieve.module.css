@@ -1,7 +1,7 @@
 .believeSection {
   width: 100%;
-  padding: 100px 20px;
-  background: linear-gradient(135deg, #f9fafb, #eef6f8);
+  padding: 5rem 2rem;
+  background: var(--bg-secondary, #F5F7FA);
 }
 
 .container {
@@ -17,14 +17,32 @@
 .title {
   font-size: 2.8rem;
   font-weight: 700;
-  color: #0b3c5d;
+  background: var(--blue-gradient, linear-gradient(135deg, #2D5A8A 0%, #1E3A5F 100%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--gold-gradient, linear-gradient(90deg, #E8D4A6 0%, #C9A961 50%, #A68B3F 100%));
+  border-radius: 2px;
 }
 
 .subtitle {
   font-size: 1.1rem;
-  color: #555;
+  color: var(--text-secondary, #6B7A8A);
   max-width: 650px;
-  margin: 15px auto 0;
+  margin: 1rem auto 0;
 }
 
 .beliefsGrid {
@@ -34,33 +52,54 @@
 }
 
 .card {
-  background: #ffffff;
-  padding: 40px 30px;
+  background: var(--bg-primary, #FFFFFF);
+  padding: 2.5rem 2rem;
   border-radius: 18px;
   text-align: center;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 4px 20px var(--shadow-sm, rgba(30, 58, 95, 0.08));
+  border: 1px solid var(--border-light, #E8ECF1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gold-gradient, linear-gradient(90deg, #E8D4A6 0%, #C9A961 50%, #A68B3F 100%));
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
 }
 
 .card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 40px var(--shadow-md, rgba(30, 58, 95, 0.12));
+  border-color: var(--gold, #C9A961);
+}
+
+.card:hover::before {
+  transform: scaleX(1);
 }
 
 .icon {
   font-size: 3rem;
-  color: #d4af37; /* Gold accent */
-  margin-bottom: 20px;
+  color: var(--gold, #C9A961);
+  margin-bottom: 1.5rem;
 }
 
 .card h3 {
   font-size: 1.3rem;
-  color: #0b3c5d;
-  margin-bottom: 12px;
+  color: var(--blue, #1E3A5F);
+  margin-bottom: 1rem;
+  font-weight: 700;
 }
 
 .card p {
   font-size: 1rem;
-  color: #555;
+  color: var(--text-secondary, #6B7A8A);
   line-height: 1.6;
 }

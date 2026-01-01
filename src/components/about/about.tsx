@@ -189,6 +189,8 @@ export default function About() {
                     </div>
                   </div>
                 </div>
+
+              
                 
                 {/* Card Background Pattern */}
                 <div className={styles.cardPattern}></div>

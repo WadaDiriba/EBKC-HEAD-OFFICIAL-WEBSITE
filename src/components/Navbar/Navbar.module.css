@@ -1,23 +1,25 @@
-/* Navbar.module.css - Clean Professional Version */
+/* Navbar.module.css - Professional Version with index.css Theme */
 
-/* Header - Minimal glass effect */
+/* Header - Professional Blue Theme */
 .header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-    background: linear-gradient(135deg, #0b1d2a 0%, #0a2b3a 100%);
+  background: var(--blue, #1F3C88);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 20px rgba(31, 60, 136, 0.3);
   transition: all 0.3s ease;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 2px solid var(--gold, #D4AF37);
+  padding: 0.5rem 0;
 }
 
 .header.scrolled {
-   background: linear-gradient(135deg, #0b1d2a 0%, #0a2b3a 100%);
+  background: var(--blue, #1F3C88);
   padding: 0.25rem 0;
+  box-shadow: 0 4px 30px rgba(31, 60, 136, 0.4);
 }
 
 
@@ -43,22 +45,24 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #0b1d2a; /* Match your navbar theme */
+  background: var(--blue, #1F3C88);
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0.5rem 0;
   min-width: 180px;
-  border-radius: 6px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(31, 60, 136, 0.4);
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
   transition: opacity 0.3s ease, transform 0.3s ease;
   z-index: 999;
+  border: 1px solid var(--gold, #D4AF37);
 }
 
 /* Show dropdown on hover */
-.navItem:hover .dropdown {
+.navItem:hover .dropdown,
+.dropdownActive {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -76,13 +80,15 @@
 
 /* Hover effect for dropdown links */
 .dropdownLink:hover {
-  background-color: #083344;
-  color: #ffffff;
+  background: var(--gold, #D4AF37);
+  color: var(--blue, #1F3C88);
+  padding-left: 20px;
+  font-weight: 600;
 }
 
 /* Optional: separate dropdown items */
 .dropdown li {
-  border-bottom: 1px solid #083344;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
 }
 
 .dropdown li:last-child {
@@ -94,14 +100,31 @@
   .dropdown {
     position: static;
     transform: none;
-    opacity: 1;
-    visibility: visible;
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
     box-shadow: none;
     border-radius: 0;
+    margin-top: 0.5rem;
+    transition: opacity 0.3s ease, max-height 0.3s ease, padding 0.3s ease;
+    padding: 0;
+  }
+  
+  .dropdownActive {
+    opacity: 1;
+    visibility: visible;
+    max-height: 500px;
+    padding: 0.5rem 0;
   }
 
   .dropdownLink {
     padding: 14px 20px;
+    padding-left: 2rem;
+  }
+  
+  .navItem {
+    width: 100%;
   }
 }
 
@@ -130,20 +153,21 @@
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid var(--gold, #D4AF37);
   transition: all 0.3s ease;
 }
 
 .logoImage:hover {
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: var(--gold, #D4AF37);
   transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
 }
 
 .brandText {
   display: flex;
   flex-direction: column;
   font-weight: 600;
-  color: #ffffff;
+  color: var(--white, #FFFFFF);
 }
 
 .brandLine1 {
@@ -183,12 +207,12 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: #ffffff;
+  background: var(--gold, #D4AF37);
   transition: width 0.3s ease;
 }
 
 .navLink:hover {
-  color: #ffffff;
+  color: var(--gold, #D4AF37);
 }
 
 .navLink:hover::after {
@@ -196,49 +220,54 @@
 }
 
 .navLink.active {
-  color: #ffffff;
+  color: var(--gold, #D4AF37);
   font-weight: 600;
 }
 
 .navLink.active::after {
   width: 100%;
-  background: #00ffff;
+  background: var(--gold, #D4AF37);
 }
 
-/* Donate Button - Clean call-to-action */
+/* Donate Button - Professional Gold Theme */
 .donateBtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0.6rem 1.5rem;
-  background: linear-gradient(135deg, #9be0e0, #5fb4b4);
-  color: #000;
-  opacity: 0.5;
-  border: none;
-  border-radius: 25px;
+  background: var(--gold, #D4AF37);
+  color: var(--blue, #1F3C88);
+  border: 2px solid var(--gold, #D4AF37);
+  border-radius: 30px;
   font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;
   transition: all 0.3s ease;
   cursor: pointer;
   min-width: 100px;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
 }
 
 .donateBtn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 204, 204, 0.3);
+  box-shadow: 0 5px 20px rgba(212, 175, 55, 0.5);
+  background: var(--red, #B22222);
+  color: var(--white, #FFFFFF);
+  border-color: var(--red, #B22222);
 }
 
-/* Contact Link - Subtle styling */
+/* Contact Link - Professional styling */
 .contactLink {
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--gold, #D4AF37);
   border-radius: 6px;
   padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
 }
 
 .contactLink:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: var(--gold, #D4AF37);
+  color: var(--blue, #1F3C88);
+  border-color: var(--gold, #D4AF37);
 }
 
 /* Hamburger Menu - Clean animation */
@@ -259,7 +288,7 @@
 .hamburgerLine {
   width: 24px;
   height: 2px;
-  background: #ffffff;
+  background: var(--white, #FFFFFF);
   margin: 3px 0;
   transition: all 0.3s ease;
   transform-origin: center;
@@ -318,12 +347,16 @@
     height: 100vh;
     width: 280px;
     flex-direction: column;
-    background: rgba(18, 24, 24, 0.98);
-   
-    
+    background: var(--blue, #1F3C88);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 2rem 1.5rem;
+    padding-top: 5rem;
     transition: right 0.4s ease;
     z-index: 999;
-    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
+    box-shadow: -5px 0 20px rgba(31, 60, 136, 0.5);
+    overflow-y: auto;
+    border-left: 2px solid var(--gold, #D4AF37);
   }
 
   .navLinks.navActive {
@@ -339,6 +372,11 @@
     font-size: 1.1rem;
     width: 100%;
     text-align: left;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  }
+  
+  .navLink:last-of-type {
+    border-bottom: none;
   }
 
   .navLink::after {
@@ -348,6 +386,7 @@
   .donateBtn {
     margin-top: 1rem;
     width: 100%;
+    justify-content: center;
   }
 
   .contactLink {

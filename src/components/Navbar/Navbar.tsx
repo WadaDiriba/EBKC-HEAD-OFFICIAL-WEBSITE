@@ -9,6 +9,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -87,27 +88,37 @@ export default function Navbar() {
             <li 
               key={item.id} 
               className={styles.navItem}
-              onMouseEnter={() => item.dropdown && setDropdownOpen(true)}
-              onMouseLeave={() => item.dropdown && setDropdownOpen(false)}
+              onMouseEnter={() => item.dropdown && setActiveDropdown(item.id)}
+              onMouseLeave={() => item.dropdown && setActiveDropdown(null)}
             >
               <Link
                 to={item.path}
                 className={`${styles.navLink} ${isActive(item.path) ? styles.active : ""}`}
-                onClick={() => setMenuOpen(false)}
+                onClick={() => {
+                  setMenuOpen(false);
+                  if (item.dropdown) {
+                    setActiveDropdown(activeDropdown === item.id ? null : item.id);
+                  }
+                }}
               >
                 {item.label}
+                {item.dropdown && (
+                  <span style={{ marginLeft: '0.5rem', fontSize: '0.8rem' }}>▼</span>
+                )}
               </Link>
 
               {/* Dropdown */}
-              {item.dropdown && dropdownOpen && (
-                <ul className={styles.dropdown}>
+              {item.dropdown && (
+                <ul className={`${styles.dropdown} ${activeDropdown === item.id ? styles.dropdownActive : ""}`}>
                   {item.dropdown.map((subItem) => (
-                    
                     <li key={subItem.id}>
                       <Link 
                         to={subItem.path} 
                         className={styles.dropdownLink} 
-                        onClick={() => setMenuOpen(false)}
+                        onClick={() => {
+                          setMenuOpen(false);
+                          setActiveDropdown(null);
+                        }}
                       >
                         {subItem.label}
                       </Link>

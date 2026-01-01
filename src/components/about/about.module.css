@@ -16,13 +16,13 @@
   transform: translateY(0);
 }
 
-/* CSS Variables for Colors */
+/* CSS Variables for Colors - Using Design System */
 :root {
-  --mission-color: #ff6b6b;
-  --vision-color: #4ecdc4;
-  --goal-color: #ffd166;
-  --primary-gold: #ffd700;
-  --secondary-gold: #ffed4e;
+  --mission-color: var(--red, #C41E3A);
+  --vision-color: var(--blue, #1E3A5F);
+  --goal-color: var(--gold, #C9A961);
+  --primary-gold: var(--gold, #C9A961);
+  --secondary-gold: var(--gold-light, #E8D4A6);
 }
 
 /* Background Elements */
