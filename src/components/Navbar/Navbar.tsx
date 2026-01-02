@@ -8,7 +8,7 @@ import logo from "../../assets/logo.png";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
 
