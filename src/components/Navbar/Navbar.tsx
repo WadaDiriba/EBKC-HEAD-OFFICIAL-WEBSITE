@@ -99,7 +99,9 @@ export default function Navbar() {
                   if (item.dropdown) {
                     setActiveDropdown(activeDropdown === item.id ? null : item.id);
                   }
-                }}
+                }
+              
+              }
               >
                 {item.label}
                 {item.dropdown && (

@@ -50,12 +50,12 @@
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
+  /* background: linear-gradient(
     135deg,
     rgba(31, 60, 136, 0.75) 0%,
     rgba(31, 60, 136, 0.5) 50%,
     rgba(0, 0, 0, 0.8) 100%
-  );
+  ); */
   z-index: 2;
   animation: overlayPulse 8s ease-in-out infinite;
 }

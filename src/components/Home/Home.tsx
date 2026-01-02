@@ -13,6 +13,7 @@ export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   const slides = [
+    
     { image: home1, title: "Welcome to Ethiopian Berhane Kristos Church", subtitle: "Experience the light of Christ in our community" },
     { image: home2, title: "Building Faith, Transforming Lives", subtitle: "Join us in worship and fellowship" },
     { image: home3, title: "A Community of Love and Hope", subtitle: "Where faith meets action" }

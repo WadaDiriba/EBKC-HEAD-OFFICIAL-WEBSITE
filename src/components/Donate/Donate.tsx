@@ -308,7 +308,7 @@ export default function Donate() {
               </Link>
             </div>
           </div>
-        </div>
+    </div>
 
         {/* Why Donate Section */}
         <div className={styles.whyDonate}>
