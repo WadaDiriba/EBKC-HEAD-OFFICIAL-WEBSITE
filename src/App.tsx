@@ -7,7 +7,6 @@ import Campus from "./components/Campus/Campus";
 import Library from "./components/Librarys/Library";
 import Testmonial from "./components/Testmonial/Testmonial";
 import Donate from "./components/Donate/Donate";
-
 import Visit from "./components/visitus/Visit";
 import Footer from "./components/Footer/Footer";
 import Contact from "./components/Contact/Contact";
@@ -33,7 +32,13 @@ function App() {
           <Route path="/donate" element={<Donate />} />
           <Route path="/history" element={<History />} />
           <Route path="/contact" element={<Contact />} />
+
         </Routes>
+
+        {/* News component removed — import News and re-add <News /> here if needed */}
+
+
+       
       </main>
 
         

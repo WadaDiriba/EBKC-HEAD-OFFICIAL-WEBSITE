@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Home.module.css";
 import home1 from "../../assets/home1.png";
-import home2 from "../../assets/home2.png";
-import home3 from "../../assets/home3.png";
+
 import Testmonial from "../Testmonial/Testmonial";
 import WhatWeBelieve from "../Whatwebelive/whatwebelieve";
+
 import FAQ from "../FAQ/FAQ"
 
 export default function Home() {
@@ -15,9 +15,7 @@ export default function Home() {
   const slides = [
     
     { image: home1, title: "Welcome to Ethiopian Berhane Kristos Church", subtitle: "Experience the light of Christ in our community" },
-    { image: home2, title: "Building Faith, Transforming Lives", subtitle: "Join us in worship and fellowship" },
-    { image: home3, title: "A Community of Love and Hope", subtitle: "Where faith meets action" }
-  ];
+  ]
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -128,6 +126,12 @@ export default function Home() {
        {/* FAQ Section */}
       <section>
         <FAQ />
+      </section>
+
+
+      <section>
+
+       
       </section>
     </>
   );

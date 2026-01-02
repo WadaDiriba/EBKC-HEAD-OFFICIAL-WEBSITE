@@ -141,7 +141,7 @@
   align-items: center;
   gap: 0.5rem;
   background: rgba(212, 175, 55, 0.2);
-  backdrop-filter: blur(10px);
+ 
   border: 2px solid var(--gold, #D4AF37);
   padding: 0.5rem 1.5rem;
   border-radius: 50px;
@@ -304,7 +304,7 @@
   background: transparent;
   color: var(--white, #FFFFFF);
   border-color: var(--gold, #D4AF37);
-  backdrop-filter: blur(10px);
+ 
 }
 
 .btnSecondary:hover {

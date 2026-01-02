@@ -23,7 +23,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--gold-gradient, linear-gradient(135deg, rgba(232, 212, 166, 0.1) 0%, rgba(201, 169, 97, 0.05) 100%));
+  background: var( linear-gradient(135deg, rgba(232, 212, 166, 0.1) 0%, rgba(201, 169, 97, 0.05) 100%));
   pointer-events: none;
 }
 
@@ -39,7 +39,7 @@
   align-items: center;
   gap: 0.5rem;
   background: rgba(201, 169, 97, 0.2);
-  backdrop-filter: blur(10px);
+ 
   border: 2px solid var(--gold, #C9A961);
   padding: 0.5rem 1.5rem;
   border-radius: 50px;
@@ -417,7 +417,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--gold-gradient, linear-gradient(135deg, rgba(232, 212, 166, 0.1) 0%, rgba(201, 169, 97, 0.05) 100%));
+  background: var( linear-gradient(135deg, rgba(232, 212, 166, 0.1) 0%, rgba(201, 169, 97, 0.05) 100%));
   pointer-events: none;
 }
 
