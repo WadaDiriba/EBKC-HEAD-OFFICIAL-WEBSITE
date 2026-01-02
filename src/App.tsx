@@ -10,9 +10,9 @@ import Donate from "./components/Donate/Donate";
 
 import Visit from "./components/visitus/Visit";
 import Footer from "./components/Footer/Footer";
-
-import History from "./components/history/history";
 import Contact from "./components/Contact/Contact";
+import History from "./components/history/history";
+
 
 
 function App() {
