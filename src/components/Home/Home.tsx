@@ -6,11 +6,12 @@ import home1 from "../../assets/home1.png";
 import Testmonial from "../Testmonial/Testmonial";
 import WhatWeBelieve from "../Whatwebelive/whatwebelieve";
 
-import FAQ from "../FAQ/FAQ"
+import FAQ from "../FAQ/FAQ";
+
 
 export default function Home() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
+  const [mousePosition, setMousePosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
 
   const slides = [
     
@@ -119,6 +120,7 @@ export default function Home() {
         <Testmonial />
       </section>
 
+     
       {/* What We Believe Section */}
       <section>
         <WhatWeBelieve />

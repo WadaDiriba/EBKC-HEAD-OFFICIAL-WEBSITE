@@ -33,6 +33,7 @@ function App() {
           <Route path="/history" element={<History />} />
           <Route path="/contact" element={<Contact />} />
 
+
         </Routes>
 
         {/* News component removed — import News and re-add <News /> here if needed */}
