@@ -15,26 +15,13 @@ export default function Visit() {
 
   const locations = [
     {
-      name: "Main Campus",
+      name: "Head Office Bureau",
       address: "3P54+GWH, Addis Ababa, Ethiopia",
       phone: "+251 11 123 4567",
-      email: "main@ebkc.org",
-      hours: "Sunday: 7:00 AM - 2:00 PM\nMonday-Friday: 8:00 AM - 6:00 PM",
+      email: "Yayoo12@gmail.com",
+      hours: " Monday -Saturday"
     },
-    {
-      name: "Arat Kilo Branch",
-      address: "Arat Kilo, Addis Ababa",
-      phone: "+251 11 234 5678",
-      email: "aratkilo@ebkc.org",
-      hours: "Sunday: 8:00 AM - 1:00 PM\nMonday-Friday: 9:00 AM - 5:00 PM",
-    },
-    {
-      name: "Bole Branch",
-      address: "Bole Sub-city, Addis Ababa",
-      phone: "+251 11 345 6789",
-      email: "bole@ebkc.org",
-      hours: "Sunday: 7:30 AM - 1:30 PM\nMonday-Friday: 8:00 AM - 6:00 PM",
-    },
+   
   ];
 
   const filteredLocations = locations.filter((location) =>
