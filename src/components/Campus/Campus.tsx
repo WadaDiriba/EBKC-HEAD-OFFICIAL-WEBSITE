@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Campus.module.css";
 
-interface Location {
+// Campus.tsx (inside src/components)
+import image1 from "../../assets/image1.png";
+import image2 from "../../assets/image2.png";
+import image3 from "../../assets/image3.png";
 
+
+const heroImages = [image1, image2, image3];
+
+interface Location {
   name: string;
   email: string;
   phone: string;
   address: string;
- 
- 
 }
 
 interface ProgramCategory {
@@ -17,117 +22,93 @@ interface ProgramCategory {
 }
 
 interface GraduationImage {
-  id: number;
+ 
   url: string;
   text: string;
   overlayText: string;
 }
 
 export default function Campus() {
+  // Hero slider state
+  const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
+  
+  // Locations data
   const [locations] = useState<Location[]>([
     {
-     
       name: "Kachis Campus",
       email: "wedadiriba@gmail.com",
       phone: "0985159172",
       address: "kechis,01",
-     
-     
     },
     {
-     
       name: "Eastside Campus",
       email: "east@churchcampus.org",
       phone: "(555) 234-5678",
       address: "456 Faith Ave, East District",
-     
-    
     },
     {
-    
       name: "Westside Campus",
       email: "west@churchcampus.org",
       phone: "(555) 345-6789",
       address: "789 Grace Blvd, West Hills",
-     
-     
     },
     {
-    
       name: "North Campus",
       email: "north@churchcampus.org",
       phone: "(555) 456-7890",
       address: "101 Hope Lane, North County",
-      
-     
     },
     {
-    
       name: "South Campus",
       email: "south@churchcampus.org",
       phone: "(555) 567-8901",
       address: "202 Peace Rd, South Suburbs",
-    
-     
     },
     {
-    
       name: "Riverfront Campus",
       email: "river@churchcampus.org",
       phone: "(555) 678-9012",
       address: "303 Mercy Way, River District",
-    
     },
     {
-     
       name: "Hilltop Campus",
       email: "hilltop@churchcampus.org",
       phone: "(555) 789-0123",
       address: "404 Glory Heights, Mountain View",
-     
     },
     {
-      
       name: "Valley Campus",
       email: "valley@churchcampus.org",
       phone: "(555) 890-1234",
       address: "505 Redemption Valley, Green Acres",
-     
     },
     {
-     
       name: "Lakeside Campus",
       email: "lake@churchcampus.org",
       phone: "(555) 901-2345",
       address: "606 Serenity Lake, Lakeside",
-    
     },
     {
-     
       name: "Heritage Campus",
       email: "heritage@churchcampus.org",
       phone: "(555) 012-3456",
       address: "707 Legacy Plaza, Old Town",
-     
     },
     {
-      
       name: "Metro Campus",
       email: "metro@churchcampus.org",
       phone: "(555) 112-2334",
       address: "808 Urban Center, Downtown Metro",
-    
     },
     {
-     
       name: "Community Campus",
       email: "community@churchcampus.org",
       phone: "(555) 223-3445",
       address: "909 Unity Square, Community Center",
-     
     }
   ]);
 
+  // Programs data
   const [programs] = useState<ProgramCategory[]>([
     {
       category: "Spiritual Growth",
@@ -147,46 +128,58 @@ export default function Campus() {
     }
   ]);
 
+  // Graduation images data
   const [graduationImages] = useState<GraduationImage[]>([
     {
-      id: 1,
+     
       url: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
       text: "2023 Graduation: 250 Students Commissioned for Ministry",
       overlayText: "Equipped to serve, called to lead, prepared to transform"
     },
     {
-      id: 2,
+     
       url: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
       text: "Biblical Studies Graduates Ready to Serve",
       overlayText: "Transforming lives through biblical education"
     },
     {
-      id: 3,
+     
       url: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
       text: "Worship Ministry Graduates Leading Praise",
       overlayText: "Raising up the next generation of worship leaders"
     },
     {
-      id: 4,
+     
       url: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
       text: "Leadership Training Graduates Changing Communities",
       overlayText: "Equipped to lead with wisdom and compassion"
     }
   ]);
 
+  // Graduation slider state
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [autoSlide, setAutoSlide] = useState(true);
 
+  // Auto-slide for hero images
+  useEffect(() => {
+    const heroTimer = setInterval(() => {
+      setCurrentHeroIndex(prev => (prev + 1) % heroImages.length);
+    }, 5000); // Change every 5 seconds
+
+    return () => clearInterval(heroTimer);
+  }, []);
+
+  // Auto-slide for graduation images
   useEffect(() => {
     if (!autoSlide) return;
     
-    const timer = setInterval(() => {
+    const gradTimer = setInterval(() => {
       setCurrentImageIndex((prev) =>
         prev === graduationImages.length - 1 ? 0 : prev + 1
       );
     }, 4000);
 
-    return () => clearInterval(timer);
+    return () => clearInterval(gradTimer);
   }, [graduationImages.length, autoSlide]);
 
   const handleLocationClick = (location: Location) => {
@@ -219,10 +212,23 @@ export default function Campus() {
     <div className={styles.container}>
       {/* HERO SECTION */}
       <section className={styles.hero}>
-        <div className={styles.heroOverlay}>
-          <h1 className={styles.heroTitle}>Church Campus Network</h1>
-          <p className={styles.heroSubtitle}>Multiple Locations, One Mission: Making Disciples of All Nations</p>
-          
+        <div className={styles.heroSlider}>
+          {heroImages.map((img, index) => (
+            <div
+              key={index}
+              className={`${styles.heroSlide} ${index === currentHeroIndex ? styles.active : ""}`}
+              style={{ backgroundImage: `url(${img})` }}
+            />
+          ))}
+          <div className={styles.heroOverlay}></div>
+        </div>
+
+        <div className={styles.heroContent}>
+          {/* <h1 className={styles.heroTitle}>Church Campus Network</h1> */}
+          <p className={styles.heroSubtitle}>
+            Multiple Locations, One Mission: Making Disciples of All Nations
+          </p>
+
           <div className={styles.stats}>
             <div className={styles.stat}>
               <span className={styles.statNumber}>12</span>
@@ -241,13 +247,11 @@ export default function Campus() {
               <span className={styles.statLabel}>Support</span>
             </div>
           </div>
-          
-          <button 
+
+          <button
             className={styles.primaryBtn}
             onClick={() => {
-              document.querySelector(`.${styles.locations}`)?.scrollIntoView({ 
-                behavior: 'smooth' 
-              });
+              document.querySelector("#locations")?.scrollIntoView({ behavior: "smooth" });
             }}
           >
             Find Your Nearest Campus
@@ -257,8 +261,8 @@ export default function Campus() {
 
       {/* GRADUATION SLIDER */}
       <section className={styles.sliderSection}>
-        <h2 className={styles.sectionTitle}>Celebrating Success Stories</h2>
-        <p className={styles.sectionSubtitle}>Transforming Lives Through Biblical Education</p>
+        <h2 className={styles.sectionsTitle}>Celebrating Success Stories</h2>
+        <p className={styles.sectionsSubtitle}>Transforming Lives Through Biblical Education</p>
         
         <div className={styles.sliderContainer}>
           <button 
@@ -305,20 +309,20 @@ export default function Campus() {
       </section>
 
       {/* CAMPUS LOCATIONS */}
-      <section className={styles.locations}>
+      <section id="locations" className={styles.locations}>
         <h2 className={styles.sectionTitle}>Our Campus Locations</h2>
         <p className={styles.sectionSubtitle}>Find a campus near you and join our growing community</p>
         
         <div className={styles.grid}>
-          {locations.map((loc) => (
+          {locations.map((loc, index) => (
             <div
-             
+              key={index}
               className={styles.card}
               onClick={() => handleLocationClick(loc)}
             >
               <div className={styles.cardHeader}>
                 <h3>{loc.name}</h3>
-              
+                
               </div>
               
               <div className={styles.cardInfo}>
@@ -334,52 +338,47 @@ export default function Campus() {
                   <span className={styles.infoIcon}>✉️</span>
                   <span className={styles.infoText}>{loc.email}</span>
                 </div>
-               
               </div>
              
-              
-              <button className={styles.secondaryBtn}>
-                Visit This Campus
-              </button>
             </div>
           ))}
         </div>
       </section>
 
-      {/* PROGRAMS */}
-      <section className={styles.programs}>
-        <h2 className={styles.sectionTitle}>Our Educational Programs</h2>
-        <p className={styles.sectionSubtitle}>Comprehensive training for every stage of spiritual growth</p>
-        
-        <div className={styles.programGrid}>
-          {programs.map((cat, i) => (
-            <div key={i} className={styles.programCard}>
-              <div className={styles.programHeader}>
-                <h3>{cat.category}</h3>
-                <div className={styles.programIcon}>
-                  {i === 0 && '📖'}
-                  {i === 1 && '🎓'}
-                  {i === 2 && '🤝'}
-                  {i === 3 && '🌟'}
-                </div>
-              </div>
-              
-              <ul className={styles.programList}>
-                {cat.items.map((item, idx) => (
-                  <li key={idx}>
-                    <span className={styles.bullet}>✓</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              
-              <button className={styles.primaryBtn}>
-                Learn More
-              </button>
-            </div>
-          ))}
+     {/* ===== PROGRAMS SECTION ===== */}
+<section className={styles.programs}>
+  <h2 className={styles.sectionnTitle}>Our Educational Programs</h2>
+  <p className={styles.sectionnSubtitle}>
+    Comprehensive training for every stage of spiritual growth
+  </p>
+
+  <div className={styles.programGrid}>
+    {programs.map((cat, i) => (
+      <div key={i} className={styles.programCard}>
+        <div className={styles.programHeader}>
+          <h3>{cat.category}</h3>
+          <div className={styles.programIcon}>
+            {/* Assign different icons based on index */}
+            {i === 0 && '📖'}
+            {i === 1 && '🎓'}
+            {i === 2 && '🤝'}
+            {i === 3 && '🌟'}
+          </div>
         </div>
-      </section>
+
+        <ul className={styles.programList}>
+          {cat.items.map((item, idx) => (
+            <li key={idx}>
+              <span className={styles.bullet}>✓</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</section>
+
 
       {/* CTA */}
       <section className={styles.cta}>
@@ -388,13 +387,12 @@ export default function Campus() {
           <p className={styles.ctaSubtitle}>Join thousands of students transforming their lives through biblical education</p>
           
           <div className={styles.ctaButtons}>
-            <button className={styles.primaryBtn}>Apply Now</button>
-            <button className={styles.outlineBtn}>Schedule a Campus Tour</button>
+            <a href="#locations">
+              <button className={styles.primaryBtn}>Join now</button>
+            </a>
           </div>
         </div>
       </section>
-
-     
     </div>
   );
 }
