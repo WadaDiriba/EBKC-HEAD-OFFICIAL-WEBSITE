@@ -38,11 +38,10 @@ function App() {
 
         {/* News component removed — import News and re-add <News /> here if needed */}
 
+        {/* The Route for News has been removed since the News component is not imported or implemented */}
 
-       
-      </main>
+        </main>
 
-        
 
       {/* Footer */}
 

@@ -1,11 +1,16 @@
     import React from "react";
-    
+    import { db } from "../../firebase";
     import styles from "./News.module.css";
 
 export default function News() {
+  const getNews = () => {
+    const news = db.collection("news").get();
+    console.log(news);
+  }
   return (
     <div>
-      
+      <button onClick={getNews}>Get News</button>
+
  <section className={styles.newsSection}>
       <div className={styles.container}>
         <h2 className={styles.sectionTitle}>Latest News</h2>
