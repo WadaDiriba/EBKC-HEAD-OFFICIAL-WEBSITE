@@ -2,21 +2,25 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Home.module.css";
 import home1 from "../../assets/home1.png";
-
 import Testmonial from "../Testmonial/Testmonial";
 import WhatWeBelieve from "../Whatwebelive/whatwebelieve";
-
 import FAQ from "../FAQ/FAQ";
-
+import { FaPhoneAlt, FaEnvelope, FaTimes, FaComments, FaWhatsapp } from "react-icons/fa";
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const [mousePosition, setMousePosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+  const [showContactNotification, setShowContactNotification] = useState(false);
+  const [notificationExiting, setNotificationExiting] = useState(false);
+  const [hasSeenNotification, setHasSeenNotification] = useState(false);
 
   const slides = [
-    
-    { image: home1, title: "Welcome to Ethiopian Berhane Kristos Church", subtitle: "Experience the light of Christ in our community" },
-  ]
+    { 
+      image: home1, 
+      title: "Welcome to Ethiopian Berhane Kristos Church", 
+      subtitle: "Experience the light of Christ in our community" 
+    },
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -36,8 +40,105 @@ export default function Home() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
+  // Show contact notification after 10 seconds if not seen before
+  useEffect(() => {
+    const notificationShown = localStorage.getItem('contactNotificationShown');
+    
+    if (!notificationShown) {
+      const timer = setTimeout(() => {
+        setShowContactNotification(true);
+        localStorage.setItem('contactNotificationShown', 'true');
+        setHasSeenNotification(true);
+      }, 100); // Show after 10 seconds
+
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  const handleCloseNotification = () => {
+    setNotificationExiting(true);
+    setTimeout(() => {
+      setShowContactNotification(false);
+      setNotificationExiting(false);
+    }, 500);
+  };
+
+  const handleContactClick = () => {
+    // Close notification and scroll to contact section or navigate
+    handleCloseNotification();
+    // If you have a contact section on the homepage
+    // document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    // Or navigate to contact page
+    window.location.href = '/contact';
+  };
+
+  const handleWhatsAppClick = () => {
+    window.open('https://wa.me/25111234567', '_blank');
+  };
+
   return (
     <>
+      {/* Contact Notification */}
+      {showContactNotification && (
+        <div className={`${styles.contactNotification} ${notificationExiting ? styles.notificationExit : styles.notificationEnter}`}>
+          <div className={styles.notificationContent}>
+            <div className={styles.notificationHeader}>
+              <div className={styles.notificationIconContainer}>
+                <FaComments className={styles.notificationIcon} />
+                <div className={styles.notificationPulse}></div>
+              </div>
+              <h3>Need to Talk?</h3>
+              <button 
+                className={styles.notificationClose}
+                onClick={handleCloseNotification}
+                aria-label="Close notification"
+              >
+                <FaTimes />
+              </button>
+            </div>
+            
+            <div className={styles.notificationBody}>
+              <p className={styles.notificationText}>
+                We're here for you! Whether you have questions, need prayer, or want to learn more about our church, our team is ready to help.
+              </p>
+              
+              <div className={styles.contactOptions}>
+                <button 
+                  className={styles.contactOption}
+                  onClick={handleContactClick}
+                >
+                  <FaEnvelope className={styles.optionIcon} />
+                  <span>Send Message</span>
+                </button>
+                
+                <button 
+                  className={styles.contactOption}
+                  onClick={handleWhatsAppClick}
+                >
+                  <FaWhatsapp className={styles.optionIcon} />
+                  <span>WhatsApp</span>
+                </button>
+                
+                <div className={styles.contactQuickInfo}>
+                  <div className={styles.contactItem}>
+                    <FaPhoneAlt className={styles.contactIcon} />
+                    <span>+251 11 123 4567</span>
+                  </div>
+                  <div className={styles.contactItem}>
+                    <FaEnvelope className={styles.contactIcon} />
+                    <span>info@ebkc.org</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div className={styles.notificationFooter}>
+                <small>Office Hours: Mon-Fri 9AM-5PM</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Homepage Section */}
       <section id="home" className={styles.homeSection}>
         {/* Background Slider with Enhanced Animation */}
@@ -120,20 +221,14 @@ export default function Home() {
         <Testmonial />
       </section>
 
-     
       {/* What We Believe Section */}
       <section>
         <WhatWeBelieve />
       </section>
-       {/* FAQ Section */}
+      
+      {/* FAQ Section */}
       <section>
         <FAQ />
-      </section>
-
-
-      <section>
-
-       
       </section>
     </>
   );

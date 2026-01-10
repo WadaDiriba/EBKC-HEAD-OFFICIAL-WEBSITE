@@ -34,6 +34,359 @@
   margin: 0 auto;
 }
 
+
+/* Animated Notification Styles */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  max-width: 400px;
+  width: calc(100% - 40px);
+}
+
+.notificationEnter {
+  animation: slideInRight 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.notificationExit {
+  animation: slideOutRight 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.notificationContent {
+  background: linear-gradient(135deg, #1E3A5F 0%, #2D5A8A 100%);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 40px rgba(30, 58, 95, 0.3);
+  border: 2px solid var(--gold, #C9A961);
+  position: relative;
+  overflow: hidden;
+}
+
+.notificationContent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gold-gradient, linear-gradient(90deg, #E8D4A6 0%, #C9A961 50%, #A68B3F 100%));
+  animation: progressBar 8s linear forwards;
+}
+
+@keyframes progressBar {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+.notificationHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.notificationIcon {
+  font-size: 1.5rem;
+  color: var(--gold, #C9A961);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.notificationHeader h3 {
+  color: var(--text-on-dark, #FFFFFF);
+  font-size: 1.1rem;
+  margin: 0;
+  flex: 1;
+}
+
+.notificationClose {
+  background: transparent;
+  border: none;
+  color: var(--gold-light, #E8D4A6);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+.notificationClose:hover {
+  background: rgba(232, 212, 166, 0.1);
+  transform: rotate(90deg);
+}
+
+.notificationBody {
+  color: var(--text-on-dark, #FFFFFF);
+}
+
+.notificationSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.step:last-child {
+  border-bottom: none;
+}
+
+.stepNumber {
+  width: 24px;
+  height: 24px;
+  background: var(--gold, #C9A961);
+  color: var(--text-on-gold, #1E3A5F);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.step span:last-child {
+  font-size: 0.9rem;
+  opacity: 0.95;
+}
+
+.notificationFormats {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.85rem;
+}
+
+.notificationFormats span:first-child {
+  opacity: 0.8;
+  font-weight: 500;
+}
+
+.formatTag {
+  background: rgba(232, 212, 166, 0.2);
+  color: var(--gold-light, #E8D4A6);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid var(--gold, #C9A961);
+}
+
+/* How to Use Button in Hero */
+.howToUseButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid var(--gold-light, #E8D4A6);
+  color: var(--gold-light, #E8D4A6);
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.howToUseButton:hover {
+  background: rgba(232, 212, 166, 0.2);
+  transform: translateY(-2px);
+  animation: none;
+}
+
+/* File Info on Book Cover */
+.fileInfo {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+}
+
+.fileFormat {
+  background: var(--gold, #C9A961);
+  color: var(--text-on-gold, #1E3A5F);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.fileSize {
+  color: var(--text-secondary, #6B7A8A);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Download Info */
+.downloadInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: var(--bg-secondary, #F5F7FA);
+  border-radius: 8px;
+}
+
+.downloadFormat {
+  color: var(--blue, #1E3A5F);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.downloadSize {
+  color: var(--text-secondary, #6B7A8A);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Download Button */
+.downloadButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.875rem;
+  background: var(--blue-gradient, linear-gradient(135deg, #2D5A8A 0%, #1E3A5F 100%));
+  color: var(--text-on-dark, #FFFFFF);
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(30, 58, 95, 0.2);
+}
+
+.downloadButton:hover {
+  background: var(--blue-gradient, linear-gradient(135deg, #3A6BA8 0%, #2D5A8A 100%));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(30, 58, 95, 0.3);
+}
+
+.downloadIcon {
+  font-size: 1.1rem;
+}
+
+/* Responsive Design for Notification */
+@media (max-width: 768px) {
+  .notification {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+    width: auto;
+  }
+  
+  .notificationContent {
+    padding: 1.25rem;
+  }
+  
+  .notificationSteps {
+    gap: 0.5rem;
+  }
+  
+  .step {
+    padding: 0.4rem 0;
+    font-size: 0.85rem;
+  }
+  
+  .notificationFormats {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .notification {
+    top: 5px;
+    right: 5px;
+    left: 5px;
+  }
+  
+  .notificationContent {
+    padding: 1rem;
+  }
+  
+  .notificationHeader h3 {
+    font-size: 1rem;
+  }
+  
+  .step {
+    font-size: 0.8rem;
+  }
+}
+
 .badge {
   display: inline-flex;
   align-items: center;

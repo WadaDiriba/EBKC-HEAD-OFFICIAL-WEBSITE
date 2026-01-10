@@ -20,6 +20,366 @@
   z-index: 0;
 }
 
+/* Contact Notification Styles */
+.contactNotification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  max-width: 350px;
+  width: 100%;
+  animation: floatUp 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.notificationEnter {
+  animation: slideInUp 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.notificationExit {
+  animation: slideOutDown 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutDown {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100px) scale(0.8);
+    opacity: 0;
+  }
+  70% {
+    transform: translateY(-10px) scale(1.05);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.notificationContent {
+  background: linear-gradient(135deg, #1E3A5F 0%, #2D5A8A 100%);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 15px 40px rgba(30, 58, 95, 0.4);
+  border: 2px solid var(--gold, #C9A961);
+  position: relative;
+  overflow: hidden;
+ 
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 15px 40px rgba(30, 58, 95, 0.4),
+                0 0 20px rgba(201, 169, 97, 0.2);
+  }
+  to {
+    box-shadow: 0 20px 50px rgba(30, 58, 95, 0.5),
+                0 0 30px rgba(201, 169, 97, 0.3);
+  }
+}
+
+.notificationHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.notificationIconContainer {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+
+.notificationIcon {
+  font-size: 2rem;
+  color: var(--gold, #C9A961);
+  position: relative;
+  z-index: 2;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.notificationPulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(201, 169, 97, 0.3);
+  border-radius: 50%;
+  animation: pulseRing 2s infinite;
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.notificationHeader h3 {
+  color: var(--text-on-dark, #FFFFFF);
+  font-size: 1.3rem;
+  margin: 0;
+  flex: 1;
+  font-weight: 700;
+  background: var(--gold-gradient, linear-gradient(135deg, #E8D4A6 0%, #C9A961 100%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.notificationClose {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: var(--gold-light, #E8D4A6);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+}
+
+.notificationClose:hover {
+  background: rgba(232, 212, 166, 0.2);
+  transform: rotate(90deg);
+}
+
+.notificationBody {
+  color: var(--text-on-dark, #FFFFFF);
+}
+
+.notificationText {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  opacity: 0.95;
+  text-align: center;
+}
+
+.contactOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.contactOption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(232, 212, 166, 0.3);
+  border-radius: 50px;
+  color: var(--text-on-dark, #FFFFFF);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.contactOption:hover {
+  background: rgba(232, 212, 166, 0.2);
+  border-color: var(--gold, #C9A961);
+  transform: translateY(-2px);
+}
+
+.contactOption:nth-child(1) {
+  background: linear-gradient(135deg, rgba(232, 212, 166, 0.2) 0%, rgba(201, 169, 97, 0.3) 100%);
+}
+
+.contactOption:nth-child(2) {
+  background: linear-gradient(135deg, rgba(37, 211, 102, 0.2) 0%, rgba(37, 211, 102, 0.3) 100%);
+  border-color: rgba(37, 211, 102, 0.3);
+}
+
+.contactOption:nth-child(2):hover {
+  border-color: #25D366;
+}
+
+.optionIcon {
+  font-size: 1.2rem;
+}
+
+.contactQuickInfo {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--gold-light, #E8D4A6);
+}
+
+.contactItem:last-child {
+  margin-bottom: 0;
+}
+
+.contactIcon {
+  font-size: 1rem;
+  color: var(--gold, #C9A961);
+  flex-shrink: 0;
+}
+
+.notificationFooter {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+}
+
+/* Floating Action Button (Alternative) */
+.floatingContactButton {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #2D5A8A 0%, #1E3A5F 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(30, 58, 95, 0.4);
+  border: 2px solid var(--gold, #C9A961);
+  z-index: 999;
+  animation: pulse 2s infinite;
+  transition: all 0.3s ease;
+}
+
+.floatingContactButton:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 40px rgba(30, 58, 95, 0.6);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contactNotification {
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+    width: auto;
+  }
+  
+  .notificationContent {
+    padding: 1.25rem;
+  }
+  
+  .notificationHeader h3 {
+    font-size: 1.1rem;
+  }
+  
+  .contactOption {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .floatingContactButton {
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactNotification {
+    bottom: 5px;
+    right: 5px;
+    left: 5px;
+  }
+  
+  .notificationContent {
+    padding: 1rem;
+  }
+  
+  .notificationHeader {
+    gap: 0.75rem;
+  }
+  
+  .notificationHeader h3 {
+    font-size: 1rem;
+  }
+  
+  .notificationText {
+    font-size: 0.85rem;
+  }
+  
+  .contactItem {
+    font-size: 0.8rem;
+  }
+}
+
+/* Add subtle entrance animation for the entire page */
+.homeSection {
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Each Slide with Enhanced Animation */
 .slide {
   position: absolute;
